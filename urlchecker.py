@@ -6,8 +6,15 @@ Created on Fri Oct 19 08:52:17 2018
 """
 
 import requests
+from tkinter import Tk
+from tkinter.filedialog import askopenfile
+from tqdm import tqdm
 
-f = open("list.txt","r");
+# f = open("list.txt","r");
+f = askopenfile(mode='r')
+
+if f == None:
+    quit()
 
 def file_len(k):
     for i, l in enumerate(k):
@@ -20,7 +27,7 @@ j = 0
 s = 0
 problems = 0
 
-contents = open("list.txt","r").readlines()
+contents = f.readlines()
 for c in contents:
     j = j + 1 
     print("Working on URL {0} of {1}".format(j,i))
